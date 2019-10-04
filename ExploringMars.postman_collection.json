@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "95a5b40d-7f00-4059-9cf5-4d04bbc2c46a",
+		"name": "ExploringMars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Mars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"limitAxisX\": 6,\n\t\"limitAxisY\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exploration/mars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"mars"
+					]
+				},
+				"description": "Post para criar marte recebendo como parametro os limites do mapa."
+			},
+			"response": []
+		},
+		{
+			"name": "Send probe to mars",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"identification\": \"Test\",\n\t\"initialAxisX\": 0,\n\t\"initialAxisY\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/exploration/mars/probe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"mars",
+						"probe"
+					]
+				},
+				"description": "Metodo que envia uma sonda para marte(cria uma sonda).\nRecebe como paramentro uma identificação, o sentido que está direcionado e a posição inicial x e y."
+			},
+			"response": []
+		},
+		{
+			"name": "List all probes of mars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/exploration/mars/probes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"mars",
+						"probes"
+					]
+				},
+				"description": "Lista todas as sondas de marte.\nRetorna identificação, sentido e posição atual."
+			},
+			"response": []
+		},
+		{
+			"name": "Single move",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/exploration/probe/Test/move",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"probe",
+						"Test",
+						"move"
+					]
+				},
+				"description": "Faz um unico movimento na sonda seguindo o sentido atual dela.\nRecebe como parametro a identificação da sonda que quer movimentar."
+			},
+			"response": []
+		},
+		{
+			"name": "Command move",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/exploration/probe/Test/move/RMM",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"probe",
+						"Test",
+						"move",
+						"RMM"
+					]
+				},
+				"description": "Faz varios movimentos de acordo com o que é passado.\nRecebe um comando, ex: MRMMLM.\nRetorna sonda atualizada com a nova posição."
+			},
+			"response": []
+		},
+		{
+			"name": "Rotate probe",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/exploration/probe/Test/rotate/L",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"exploration",
+						"probe",
+						"Test",
+						"rotate",
+						"L"
+					]
+				},
+				"description": "Gira a sonda conforme a direção recebida por parametro.\n\nL -> Left\nR -> Right"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
