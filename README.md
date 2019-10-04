@@ -12,4 +12,8 @@
 #### Para executar
  - Basta apenas rodar a classe *ExploringMarsApplication.java* ou compilar o projeto e executar o seguinte comando na raiz: 
  ```
- java -jar target/ExploringMars
+ java -jar target/ExploringMars-1.0.0.jar
+ ```
+
+ #### Postman
+ - Caso opte por usar o postman basta clicar no botão Import localizado no canto superior esquerdo e selecionar o arquivo mencionado a cima nas observações.
